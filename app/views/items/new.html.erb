@@ -15,5 +15,6 @@
 
 <%= simple_form_for [@session, @session.items.build] do |f| %>
   <%= f.input :name %>
+  <%= f.input :type, placeholder: 'car', :readonly => true %>
   <%= f.submit %>
 <% end %>
