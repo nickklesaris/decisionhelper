@@ -27,4 +27,20 @@
       <% end %>
     </tr>
   </thead>
+    <tbody>
+  <%= simple_form_for [session, session.items.build] do |f| %>
+    <tr>
+      <td><%= @item.name %></td>
+      <% count = 1 %>
+        <td>
+          <%= simple_form_for [session, session.items.build] do |f| %>
+            <%= f.input @item[""] %>
+            <%= f.button :submit %>
+          <%  %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+
   </table>

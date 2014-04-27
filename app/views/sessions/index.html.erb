@@ -14,10 +14,9 @@
       <td><%= link_to s.name, session_path(s) %></td>
       <td><%= s.description %> </td>
       <td><%= s.item_type %> </td>
+      <td><%= link_to "Add items to evaluate", new_session_item_path(s.id), class: 'button' %></td>
     </tr>
     <br>
     <% end %>
   </tbody>
 </table>
-
-<%= link_to "Create new evaluation session", new_session_path, class: 'button' %>

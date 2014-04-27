@@ -1,5 +1,8 @@
 T2::Application.routes.draw do
-  resources :sessions, only: [:new, :create, :index, :show]
+  resources :sessions, only: [:new, :create, :index, :show] do
+    resources :items, only: [:new, :create, :index, :show]
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

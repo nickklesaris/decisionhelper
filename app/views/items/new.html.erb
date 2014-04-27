@@ -1,0 +1,19 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Item type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @session.name %></td>
+      <td><%= @session.item_type %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= simple_form_for [@session, @session.items.build] do |f| %>
+  <%= f.input :name %>
+  <%= f.submit %>
+<% end %>
