@@ -1,7 +1,7 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Evaluation Session</th>
       <th>Item type</th>
     </tr>
   </thead>
@@ -13,8 +13,32 @@
   </tbody>
 </table>
 
+<table>
+<thead>
+  <tr><th><%= @session.item_type.upcase %></th>
+      <% count = 1 %>
+      <% while count <= 12 %>
+        <% if @session["criterion_#{count}"] != "unused"%>
+          <th><%= @session["criterion_#{count}"] %></th>
+          <% criteria_num = count %>
+        <% end %>
+      <% count += 1  %>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
 <%= simple_form_for [@session, @session.items.build] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :type, placeholder: 'car', :readonly => true %>
-  <%= f.submit %>
+<tr>
+<td><%= f.input :name %></td>
+  <%= f.input :type, placeholder: 'car', :readonly => true, as: :hidden %>
+
+      <% count = 1 %>
+      <% while count <= criteria_num %>
+        <td><%= f.input :grouping_1  %></td>
+      <% count += 1  %>
+      <% end %>
+
+  <td> <%= f.submit %> </td></tr>
 <% end %>
+</tbody>
+</table>
