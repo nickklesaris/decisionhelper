@@ -30,11 +30,11 @@
 <%= simple_form_for [@session, @session.items.build] do |f| %>
 <tr>
 <td><%= f.input :name %></td>
-  <%= f.input :type, placeholder: 'car', :readonly => true, as: :hidden %>
+  <%= f.input :type, as: :hidden, value: @session.item_type %>
 
       <% count = 1 %>
       <% while count <= criteria_num %>
-        <td><%= f.input :grouping_1  %></td>
+        <td><%= f.input :"grouping_#{count}"  %></td>
       <% count += 1  %>
       <% end %>
 
