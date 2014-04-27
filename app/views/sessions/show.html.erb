@@ -1,0 +1,30 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Item type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @session.name %></td>
+      <td><%= @session.description %></td>
+      <td><%= @session.item_type %></td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+      <th> <%= @session.item_type.upcase %> </th>
+      <% count = 1 %>
+      <% while count <= 12 %>
+      <% if @session["criterion_#{count}"] != "unused"%>
+        <th><%= @session["criterion_#{count}"] %></th>
+      <% end %>
+      <% count += 1  %>
+      <% end %>
+    </tr>
+  </thead>
+  </table>
