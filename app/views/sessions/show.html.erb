@@ -26,18 +26,24 @@
       <% end %>
       <% count += 1  %>
       <% end %>
+        <th> Score </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <% @items.each do |y| %>
-        <td> <%= y.name %></td>
+        <td><strong> <%= y.name %> </strong></td>
         <% count = 1 %>
+        <% score = 0.0 %>
           <% while count <= criteria_count %>
               <td> <%= y["grouping_#{count}"] %> </td>
               <% count += 1 %>
+              <% group_word = y["grouping_#{count}"] %>
+              <% score += @convert["#{group_word}"]  %>
           <% end %>
-            </tr>
+          <td> <%= score/10 %> </td>
+          <% score = 0.0 %>
+          </tr>
         <% end %>
   </tbody>
   </table>

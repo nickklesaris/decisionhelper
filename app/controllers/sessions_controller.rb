@@ -22,6 +22,12 @@ class SessionsController < ApplicationController
     @session = Session.find(params[:id])
     @item = Item.new
     @items = @session.items
+    @convert = {"Awful" => 8, "Poor" => 28, "Okay" => 58, "Great" => 84, "Outstanding" => 96, "unused" => 0 }
+    #count = 1
+    #while count <= 12
+
+    #end
+    #@score = 96.0
   end
 
   private
