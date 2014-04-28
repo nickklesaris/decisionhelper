@@ -39,7 +39,7 @@
               <td> <%= y["grouping_#{count}"] %> </td>
               <% count += 1 %>
               <% group_word = y["grouping_#{count}"] %>
-              <% score += @convert["Great"] / 10.0 %>
+              <% score += @convert["#{group_word}"] / 10.0 %>
           <% end %>
           <td> <%= score %> </td>
           <% score = 0.0 %>
