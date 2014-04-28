@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140427045729) do
+ActiveRecord::Schema.define(version: 20140428040334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,23 +39,35 @@ ActiveRecord::Schema.define(version: 20140427045729) do
   add_index "items", ["session_id"], name: "index_items_on_session_id", using: :btree
 
   create_table "sessions", force: true do |t|
-    t.string   "name",                            null: false
+    t.string   "name",                             null: false
     t.text     "description"
-    t.string   "item_type",                       null: false
-    t.string   "criterion_1",  default: "unused"
-    t.string   "criterion_2",  default: "unused"
-    t.string   "criterion_3",  default: "unused"
-    t.string   "criterion_4",  default: "unused"
-    t.string   "criterion_5",  default: "unused"
-    t.string   "criterion_6",  default: "unused"
-    t.string   "criterion_7",  default: "unused"
-    t.string   "criterion_8",  default: "unused"
-    t.string   "criterion_9",  default: "unused"
-    t.string   "criterion_10", default: "unused"
-    t.string   "criterion_11", default: "unused"
-    t.string   "criterion_12", default: "unused"
+    t.string   "item_type",                        null: false
+    t.string   "criterion_1",   default: "unused"
+    t.string   "criterion_2",   default: "unused"
+    t.string   "criterion_3",   default: "unused"
+    t.string   "criterion_4",   default: "unused"
+    t.string   "criterion_5",   default: "unused"
+    t.string   "criterion_6",   default: "unused"
+    t.string   "criterion_7",   default: "unused"
+    t.string   "criterion_8",   default: "unused"
+    t.string   "criterion_9",   default: "unused"
+    t.string   "criterion_10",  default: "unused"
+    t.string   "criterion_11",  default: "unused"
+    t.string   "criterion_12",  default: "unused"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "importance_1",  default: 3
+    t.integer  "importance_2",  default: 3
+    t.integer  "importance_3",  default: 3
+    t.integer  "importance_4",  default: 3
+    t.integer  "importance_5",  default: 3
+    t.integer  "importance_6",  default: 3
+    t.integer  "importance_7",  default: 3
+    t.integer  "importance_8",  default: 3
+    t.integer  "importance_9",  default: 3
+    t.integer  "importance_10", default: 3
+    t.integer  "importance_11", default: 3
+    t.integer  "importance_12", default: 3
   end
 
 end
