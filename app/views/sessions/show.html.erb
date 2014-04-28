@@ -46,9 +46,10 @@
                 <% score += augment %>
               <% end %>
           <% end %>
-          <td> <%= score/10 %> </td>
+          <td> <strong><%= score/10 %> </strong> </td>
           <% score = 0.0 %>
           </tr>
         <% end %>
   </tbody>
   </table>
+<%= link_to "Evaluation session catalog", sessions_path, class: 'button' %>
