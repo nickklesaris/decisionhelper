@@ -21,10 +21,23 @@
       <% count = 1 %>
       <% while count <= 12 %>
       <% if @session["criterion_#{count}"] != "unused"%>
+        <% criteria_count = count %>
         <th><%= @session["criterion_#{count}"] %></th>
       <% end %>
       <% count += 1  %>
       <% end %>
     </tr>
   </thead>
+  <tbody>
+    <tr>
+      <% @items.each do |y| %>
+        <td> <%= y.name %></td>
+        <% count = 1 %>
+          <% while count <= criteria_count %>
+              <td> <%= y["grouping_#{count}"] %> </td>
+              <% count += 1 %>
+          <% end %>
+            </tr>
+        <% end %>
+  </tbody>
   </table>
