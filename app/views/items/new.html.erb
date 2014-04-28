@@ -24,6 +24,7 @@
         <% end %>
       <% count += 1  %>
       <% end %>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -34,7 +35,7 @@
 
       <% count = 1 %>
       <% while count <= criteria_num %>
-        <td><%= f.input :"grouping_#{count}"  %></td>
+        <td><%= f.input :"grouping_#{count}", collection: Item::GROUPINGS %></td>
       <% count += 1  %>
       <% end %>
 

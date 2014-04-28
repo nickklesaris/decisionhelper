@@ -21,26 +21,23 @@
       <% count = 1 %>
       <% while count <= 12 %>
       <% if @session["criterion_#{count}"] != "unused"%>
+        <% criteria_count = count %>
         <th><%= @session["criterion_#{count}"] %></th>
       <% end %>
       <% count += 1  %>
       <% end %>
     </tr>
   </thead>
-    <tbody>
-  <%= simple_form_for [session, session.items.build] do |f| %>
+  <tbody>
     <tr>
-      <td><%= @item.name %></td>
-      <% count = 1 %>
-        <td>
-          <%= simple_form_for [session, session.items.build] do |f| %>
-            <%= f.input @item[""] %>
-            <%= f.button :submit %>
-          <%  %>
-        </td>
-      <% end %>
-    </tr>
-  <% end %>
+      <% @items.each do |y| %>
+        <td> <%= y.name %></td>
+        <% count = 1 %>
+          <% while count <= criteria_count %>
+              <td> <%= y["grouping_#{count}"] %> </td>
+              <% count += 1 %>
+          <% end %>
+            </tr>
+        <% end %>
   </tbody>
-
   </table>

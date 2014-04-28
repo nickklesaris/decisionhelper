@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
         flash[:notice] = "Item created."
       else
         render 'new'
+        flash[:notice] = "Item not created."
       end
   end
 
