@@ -39,7 +39,12 @@
               <td> <%= y["grouping_#{count}"] %> </td>
               <% count += 1 %>
               <% group_word = y["grouping_#{count}"] %>
-              <% score += @convert["#{group_word}"]  %>
+              <% importance_weight = @session["importance_#{count}"] %>
+              <% converted = @convert["#{group_word}"] %>
+              <% if group_word != 'unused' %>
+                <% augment = converted * importance_weight %>
+                <% score += augment %>
+              <% end %>
           <% end %>
           <td> <%= score/10 %> </td>
           <% score = 0.0 %>

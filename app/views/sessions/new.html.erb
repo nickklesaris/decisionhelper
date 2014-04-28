@@ -1,18 +1,29 @@
+<head>
+<h1>Evaluation session input </h1>
+</head>
 <%= simple_form_for @session do |e| %>
   <%= e.input :name %>
   <%= e.input :description %>
   <%= e.input :item_type %>
-  <%= e.input :criterion_1 %>
-  <%= e.input :criterion_2 %>
-  <%= e.input :criterion_3 %>
-  <%= e.input :criterion_4 %>
-  <%= e.input :criterion_5 %>
-  <%= e.input :criterion_6 %>
-  <%= e.input :criterion_7 %>
-  <%= e.input :criterion_8 %>
-  <%= e.input :criterion_9 %>
-  <%= e.input :criterion_10 %>
-  <%= e.input :criterion_11 %>
-  <%= e.input :criterion_12 %>
-  <%= e.submit %>
+  <table>
+  <tr><th> Input criteria </th><th> Select Importance <br>(5 is most important) </th> <th></th><th> Input criteria </th><th> Select Importance <br>(5 is most important) </th><th></th><th>Input criteria</th><th> Select Importance <br>(5 is most important) </th></tr>
+  <tr><td><%= e.input :criterion_1 %></td><td><%= e.input :importance_1, :collection => 1..5, :as => :radio_buttons,  :label => false %></td><td></td>
+  <td><%= e.input :criterion_2 %></td><td><%= e.input :importance_2, :collection => 1..5, :as => :radio_buttons,  :label => false %></td><td></td>
+  <td><%= e.input :criterion_3 %></td><td><%= e.input :importance_3, :collection => 1..5, :as => :radio_buttons,  :label => false %></td><td></td></tr>
+
+<tr><td><%= e.input :criterion_4 %></td><td><%= e.input :importance_4, :collection => 1..5, :as => :radio_buttons,  :label => false %></td><td></td>
+  <td><%= e.input :criterion_5 %></td><td><%= e.input :importance_5, :collection => 1..5, :as => :radio_buttons,  :label => false %></td><td></td>
+  <td><%= e.input :criterion_6 %></td><td><%= e.input :importance_6, :collection => 1..5, :as => :radio_buttons,  :label => false %></td><td></td></tr>
+
+<tr><td><%= e.input :criterion_7 %></td><td><%= e.input :importance_7, :collection => 1..5, :as => :radio_buttons,  :label => false %></td><td></td>
+  <td><%= e.input :criterion_8 %></td><td><%= e.input :importance_8, :collection => 1..5, :as => :radio_buttons,  :label => false %></td><td></td>
+  <td><%= e.input :criterion_9 %></td><td><%= e.input :importance_9, :collection => 1..5, :as => :radio_buttons,  :label => false %></td><td></td></tr>
+
+<tr><td><%= e.input :criterion_10 %></td><td><%= e.input :importance_10, :collection => 1..5, :as => :radio_buttons,  :label => false %></td><td></td>
+  <td><%= e.input :criterion_11 %></td><td><%= e.input :importance_11, :collection => 1..5, :as => :radio_buttons,  :label => false %></td><td></td>
+  <td><%= e.input :criterion_12 %></td><td><%= e.input :importance_12, :collection => 1..5, :as => :radio_buttons,  :label => false %></td><td></td></tr>
+
+</table>
+
+  <td><%= e.submit %></td>
 <% end %>
