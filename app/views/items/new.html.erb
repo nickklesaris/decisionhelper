@@ -1,46 +1,12 @@
-<table>
-  <thead>
-    <tr>
-      <th>Evaluation Session</th>
-      <th>Item type</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= @session.name %></td>
-      <td><%= @session.item_type %></td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-<thead>
-  <tr><th><%= @session.item_type.upcase %></th>
-      <% count = 1 %>
-      <% while count <= 12 %>
-        <% if @session["criterion_#{count}"] != "unused"%>
-          <th><%= @session["criterion_#{count}"] %></th>
-          <% criteria_num = count %>
-        <% end %>
-      <% count += 1  %>
-      <% end %>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<%= @session.name %>
 <%= simple_form_for [@session, @session.items.build] do |f| %>
-<tr>
-<td><%= f.input :name %></td>
+  <%= f.input :name, label: @session.item_type %>
   <%= f.input :type, as: :hidden, value: @session.item_type %>
-
-      <% count = 1 %>
-      <% while count <= criteria_num %>
-        <td><%= f.input :"grouping_#{count}", collection: Item::GROUPINGS %></td>
-      <% count += 1  %>
-      <% end %>
-
-  <td> <%= f.submit %> </td></tr>
-<% end %>
-</tbody>
-</table>
+  <% count = 1 %>
+  <% while @session["criterion_#{count}"] != "unused"%>
+    <%= f.input :"grouping_#{count}", label: @session["criterion_#{count}"], collection: Item::GROUPINGS %>
+    <% count += 1 %>
+  <% end %>
+<%= f.submit %>
 <%= link_to "Existing evaluation sessions", sessions_path, class: 'button' %>
+<% end %>
