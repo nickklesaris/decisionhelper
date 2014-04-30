@@ -1,10 +1,10 @@
 <%= @session.name %>
 <%= simple_form_for [@session, @session.items.build] do |f| %>
-  <%= f.input :name, label: @session.item_type %>
+  <%= f.input :name, label: @session.item_type, placeholder: "enter #{@session.item_type}" %>
   <%= f.input :type, as: :hidden, value: @session.item_type %>
   <% count = 1 %>
   <% while @session["criterion_#{count}"] != "unused"%>
-    <%= f.input :"grouping_#{count}", label: @session["criterion_#{count}"], collection: Item::GROUPINGS %>
+    <%= f.input :"grouping_#{count}", label: @session["criterion_#{count}"], collection: Item::GROUPINGS, prompt: "select a rating" %>
     <% count += 1 %>
   <% end %>
 <%= f.submit %>
