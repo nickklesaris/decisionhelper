@@ -21,9 +21,7 @@
 
 <tr><td><%= e.input :criterion_10 %></td><td><%= e.input :importance_10, :collection => 1..5, :as => :radio_buttons,  :label => false %></td><td></td>
   <td><%= e.input :criterion_11 %></td><td><%= e.input :importance_11, :collection => 1..5, :as => :radio_buttons,  :label => false %></td><td></td>
-  <td><%= e.input :criterion_12 %></td><td><%= e.input :importance_12, :collection => 1..5, :as => :radio_buttons,  :label => false %></td><td></td></tr>
+  <td><%= e.input :criterion_12 %></td><td><%= e.input :importance_12, :collection => 1..5, :as => :radio_buttons,  :label => false %></td><td> <%= e.button :submit %> </td></tr>
 
 </table>
-
-  <td><%= e.submit %></td>
 <% end %>
